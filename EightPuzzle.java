@@ -21,8 +21,9 @@ class EightPuzzleState {
 
     public static EightPuzzleState goalState() {
 	//int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 0};
-	int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+	//int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 	//int[] numbers = {8, 7, 6, 5, 4, 3, 2, 1, 0};
+	int[] numbers = {1, 2, 3, 8, 0, 4, 7, 6, 5};
 	return new EightPuzzleState(numbers);
     }
 
@@ -282,7 +283,8 @@ class EightPuzzleSearchProblem {
 
 public class EightPuzzle {
     public static void main(String[] args) throws InterruptedException {
-	int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+	//int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+	int[] numbers = {1, 2, 3, 8, 0, 4, 7, 6, 5};
 	EightPuzzleState puzzle = new EightPuzzleState(numbers);
 	puzzle = EightPuzzleState.shuffle(puzzle);
 	System.out.println("Puzzle");
