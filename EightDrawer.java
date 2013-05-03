@@ -9,17 +9,17 @@ public class EightDrawer {
 
     public EightDrawer(EightPuzzleState puzzle) {
 	buttons = new JButton[3][3];
-	blankRow = puzzle.blankCol;
-	blankCol = puzzle.blankRow;
+	blankRow = puzzle.blankRow;
+	blankCol = puzzle.blankCol;
 
 	Font font = new Font("Courier", Font.PLAIN, 36);
 
 	for(int row = 0; row < 3; row++)
 	    for(int col = 0; col < 3; col++) {
-		buttons[row][col] = new JButton("" + puzzle.cells[col][row]);
+		buttons[row][col] = new JButton("" + puzzle.cells[row][col]);
 		buttons[row][col].setFont(font);
 		buttons[row][col].setSize(100, 100);
-		buttons[row][col].setLocation(100 * row, 100 * col);
+		buttons[row][col].setLocation(100 * col, 100 * row);
 	    }
 	buttons[blankRow][blankCol].setText("");
     }
@@ -38,7 +38,7 @@ public class EightDrawer {
 
 	for(int row = 0; row < 3; row++)
 	    for(int col = 0; col < 3; col++) {
-		gamePane.add(buttons[col][row]);
+		gamePane.add(buttons[row][col]);
 	    }
 
 	contentPane.add(gamePane);
@@ -50,32 +50,32 @@ public class EightDrawer {
     public void moveLeft() {
 	int row = blankRow;
 	int col = blankCol;
-	buttons[row][col].setText(buttons[row-1][col].getText());
-	buttons[row-1][col].setText("");
-	blankRow--;
-    }
-
-    public void moveUp() {
-	int row = blankRow;
-	int col = blankCol;
 	buttons[row][col].setText(buttons[row][col-1].getText());
 	buttons[row][col-1].setText("");
 	blankCol--;
     }
 
-    public void moveRight() {
+    public void moveUp() {
 	int row = blankRow;
 	int col = blankCol;
-	buttons[row][col].setText(buttons[row+1][col].getText());
-	buttons[row+1][col].setText("");
-	blankRow++;
+	buttons[row][col].setText(buttons[row-1][col].getText());
+	buttons[row-1][col].setText("");
+	blankRow--;
     }
 
-    public void moveDown() {
+    public void moveRight() {
 	int row = blankRow;
 	int col = blankCol;
 	buttons[row][col].setText(buttons[row][col+1].getText());
 	buttons[row][col+1].setText("");
 	blankCol++;
+    }
+
+    public void moveDown() {
+	int row = blankRow;
+	int col = blankCol;
+	buttons[row][col].setText(buttons[row+1][col].getText());
+	buttons[row+1][col].setText("");
+	blankRow++;
     }
 }
